@@ -1,0 +1,15 @@
+.actionButtons button+button {
+    margin-left: 1rem;
+}
+
+.app-table-responsive {
+    height: 80vh;
+    overflow: scroll;
+    border: solid 1px blue;
+}
+
+thead {
+    position: sticky;
+    top:0;
+    z-index:10;
+}

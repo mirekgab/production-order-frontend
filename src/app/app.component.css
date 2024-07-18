@@ -1,0 +1,11 @@
+#app-content {
+    height: 100vh;
+    border:solid 1px red;
+    margin-left: 1rem;
+    margin-right:1rem;
+}
+
+
+#navigation button + button {
+    margin-left:10px;
+}

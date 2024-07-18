@@ -1,0 +1,26 @@
+<div class="backdrop"></div>
+<dialog open>
+  <h2>Add Task</h2>
+  <form (ngSubmit)="onSubmit()">
+    <p>
+      <label for="title">product id</label>
+      <input type="text" id="title" name="title" [(ngModel)]="enteredId" />
+    </p>
+
+    <p>
+      <label for="summary">product name</label>
+      <input type="text" id="summary" name="summary" [(ngModel)]="enteredName" />
+    </p>
+
+    <p class="actions">
+      <button type="button" (click)="onCancel()">Cancel</button>
+      <button type="submit">
+        @if (isNewProduct) {
+        Create
+        } @else {
+        Save
+        }
+      </button>
+    </p>
+  </form>
+</dialog>

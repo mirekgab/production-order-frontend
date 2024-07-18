@@ -1,0 +1,33 @@
+@if (isAddingProduct) {
+<app-new-product (close)="onCloseAddProduct()" [enteredId]="selectedProduct.id" [enteredName]="selectedProduct.name" [isNewProduct]="isNewProduct" />
+}
+
+<div id="productsList">
+    <div class="d-flex justify-content-between p-1">
+        <h2>Products list</h2>
+        <button class="btn btn-primary bi bi-plus-square" (click)="onAddProduct()"></button>
+    </div>
+    <div class="app-table-responsive">
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>name</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (product of productsList; track product.id) {
+                <tr>
+                    <td>{{ product.id }}</td>
+                    <td>{{ product.name }}</td>
+                    <td class="actionButtons text-end">
+                        <button class="btn btn-outline-primary bi bi-pencil-square" (click)="editProduct(product.id)"></button>
+                        <button class="btn btn-danger bi bi-dash-square" (click)="removeProduct(product.id)"></button>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

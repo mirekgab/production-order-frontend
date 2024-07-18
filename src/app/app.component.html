@@ -1,5 +1,16 @@
-<div class="container bg-primary">
-  <h1>hello world</h1>
-  <button class="btn btn-primary">hello</button>
-  <button class="btn btn-danger">world</button>
+<div id="app-content" >
+        <div id="navigation" class="p-2 bg-info">
+
+                <button class="btn" [class.btn-primary]="homeDisplay" (click)="onHome()">Home</button>
+                <button class="btn" [class.btn-primary]="productDisplay" (click)="onProducts()">Products</button>
+        </div>
+        <div id="" class="container">
+                @if (homeDisplay) {
+                <app-home />
+                }
+
+                @if (productDisplay) {
+                <app-products />
+                }
+        </div>
 </div>
