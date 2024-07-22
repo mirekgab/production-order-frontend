@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { Product } from '../product.model';
 import { ProductService } from '../product.service';
 import { NewProductComponent } from "../new-product/new-product.component";
+import { ListComponent } from "../../shared/list/list.component";
 
 @Component({
   selector: 'app-products',
   standalone: true,
-  imports: [NewProductComponent],
+  imports: [NewProductComponent, ListComponent],
   templateUrl: './products.component.html',
   styleUrl: './products.component.css'
 })
