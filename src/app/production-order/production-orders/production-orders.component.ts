@@ -21,19 +21,25 @@ export class ProductionOrdersComponent {
   }
 
   removeProductionOrder(productionOrderId: string) {
-
+    this.productionOrderService.removeProductionOrder(productionOrderId);
+    this.productionOrdersList = this.productionOrderService.getProductionOrderList();
   }
 
   editProductionOrder(productionOrderId: string) {
+    this.selectedProductionOrder = this.productionOrderService.getProductionOrder(productionOrderId);
+    this.isAddingProductionOrder = true;
+    this.isNewProductionOrder = false;
 
   }
 
   onAddProductionOrder() {
-
+    this.selectedProductionOrder={id:'', name:''};
+    this.isAddingProductionOrder = true;
+    this.isNewProductionOrder = true;
   }
 
   onCloseAddProductionOrder() {
-
+    this.isAddingProductionOrder = false;
   }
 
 }

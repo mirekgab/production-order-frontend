@@ -1,1 +1,26 @@
-<p>new-production-order works!</p>
+<div class="backdrop"></div>
+<dialog open>
+  <h2>Add Production Order</h2>
+  <form (ngSubmit)="onSubmit()">
+    <p>
+      <label for="title">production order id</label>
+      <input type="text" id="title" name="title" [(ngModel)]="enteredId" />
+    </p>
+
+    <p>
+      <label for="summary">production order name</label>
+      <input type="text" id="summary" name="summary" [(ngModel)]="enteredName" />
+    </p>
+
+    <p class="actions">
+      <button type="button" (click)="onCancel()">Cancel</button>
+      <button type="submit">
+        @if (isNewProductionOrder) {
+        Create
+        } @else {
+        Save
+        }
+      </button>
+    </p>
+  </form>
+</dialog>

@@ -1,5 +1,6 @@
 @if (isAddingProductionOrder) {
-    <app-new-production-order (close)="onCloseAddProductionOrder()" [enteredId]="selectedProductionOrder.id" [enteredName]="selectedProductionOrder.name" [isNewProductionOrder]="isNewProductionOrder" />
+    <app-new-production-order (close)="onCloseAddProductionOrder()" [enteredId]="selectedProductionOrder.id" [enteredName]="selectedProductionOrder.name" 
+    [isNewProductionOrder]="isNewProductionOrder" />
     }
     
     <div id="productsList">
