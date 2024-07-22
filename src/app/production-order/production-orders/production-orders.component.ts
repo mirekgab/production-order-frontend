@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { ProductionOrderService } from '../production-order.service';
 import { ProductionOrder } from '../production-order.model';
 import { NewProductionOrderComponent } from "../new-production-order/new-production-order.component";
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-orders',
   standalone: true,
-  imports: [NewProductionOrderComponent],
+  imports: [NewProductionOrderComponent, RouterLink],
   templateUrl: './production-orders.component.html',
   styleUrl: './production-orders.component.css'
 })
@@ -16,7 +17,10 @@ export class ProductionOrdersComponent {
   productionOrdersList: ProductionOrder[] = this.productionOrderService.getProductionOrderList();
   selectedProductionOrder!: ProductionOrder;
 
-  constructor(private productionOrderService: ProductionOrderService) {
+  constructor(
+    private productionOrderService: ProductionOrderService,
+    private routerLink: Router
+  ) {
 
   }
 
@@ -33,13 +37,17 @@ export class ProductionOrdersComponent {
   }
 
   onAddProductionOrder() {
-    this.selectedProductionOrder={id:'', name:''};
+    this.selectedProductionOrder = { id: '', name: '' };
     this.isAddingProductionOrder = true;
     this.isNewProductionOrder = true;
   }
 
   onCloseAddProductionOrder() {
     this.isAddingProductionOrder = false;
+  }
+
+  onProductionOrderDetails(productionOrderId: string) {    
+    this.routerLink.navigate(["/production-orders/"+productionOrderId]); 
   }
 
 }
